@@ -60,25 +60,45 @@ function SET_CMD {
 
 
 # What should we do?
-DO="$1"
+DO="$2"
+PORT="$1"
+
+
+if [ -z "${PORT}" ]; then
+	echo "">&2
+        echo "usage: $0 <port> <command>" >&2
+        echo >&2
+        echo "  commands: " >&2
+        echo ""
+        echo "          on     : ON ">&2
+        echo ""
+        echo "          off    : OFF">&2
+        echo ""
+        echo "          cycle  : OFF/ON ">&2
+        echo ""
+        echo >&2
+        exit 0
+
+
+fi
 
 case "$DO" in
     
     on)
-      SET_CMD "${IP}" "7" "on";
+      SET_CMD "${IP}" "${PORT}" "on";
         ;;
     off)
-      SET_CMD "${IP}" "7" "off";
+      SET_CMD "${IP}" "${PORT}" "off";
         ;;
     
     cycle)
-      SET_CMD "${IP}" "7" "off";
-      SET_CMD "${IP}" "7" "on";
+      SET_CMD "${IP}" "${PORT}" "off";
+      SET_CMD "${IP}" "${PORT}" "on";
 
         ;;
     *)
 	echo "">&2
-        echo "usage: $0 <command>" >&2
+        echo "usage: $0 <port> <command>" >&2
         echo >&2
         echo "  commands: " >&2
 	echo ""
