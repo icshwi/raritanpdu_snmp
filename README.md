@@ -8,6 +8,15 @@ A simple script to reboot an outlet of PX3-5260V [1] in order to reboot a board 
 * Recent MIB file is found at [2]
 * SNMP Usage is found at [3]
 
+
+## Requirement
+
+```
+mkdir $HOME/.snmp/
+ln -s ${PWD}/mibs ${HOME}/.snmp/mibs
+
+```
+
 ### Reference
 [1] http://www.raritan.com/product-selector/pdu-detail/px3-5260v
 

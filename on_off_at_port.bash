@@ -36,7 +36,7 @@ declare -gr MIB="PDU2-MIB"
 
 # ICS lab, we have only one available currently. 2016-10-25
 
-declare -gr IP="10.4.3.13"
+#declare -gr IP="10.4.3.13"
 declare -gr SET_USER="essics"
 
 
@@ -60,13 +60,14 @@ function SET_CMD {
 
 
 # What should we do?
+IP="$1"
 DO="$2"
-PORT="$1"
+PORT="$3"
 
 
 if [ -z "${PORT}" ]; then
 	echo "">&2
-        echo "usage: $0 <port> <command>" >&2
+        echo "usage: $0 <ip> <command> <port> " >&2
         echo >&2
         echo "  commands: " >&2
         echo ""
