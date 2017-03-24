@@ -11,6 +11,10 @@ A simple script to reboot an outlet of PX3-5260V [1] in order to reboot a board 
 
 ## Requirement
 
+Centos
+```
+# yum install net-snmp net-snmp-utils
+```
 ```
 mkdir $HOME/.snmp/
 ln -s ${PWD}/mibs ${HOME}/.snmp/mibs
